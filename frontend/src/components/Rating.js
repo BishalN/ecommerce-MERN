@@ -1,6 +1,7 @@
 import React from 'react'
+import { propTypes } from 'react-bootstrap/esm/Image'
 
-const Rating = ({ value, text, color }) => {
+const Rating = ({ value, text, color = 'orange' }) => {
   return (
     <div className='rating'>
       <span>
