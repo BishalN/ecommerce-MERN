@@ -4,6 +4,7 @@ import colors from 'colors'
 
 import products from './data/product.js'
 import connectDB from './config/db.js'
+import productRoutes from './routes/productRoutes.js'
 
 dotenv.config()
 connectDB()
@@ -14,17 +15,7 @@ app.get('/', (req, res) => {
   res.send('APi is running')
 })
 
-app.get('/api/products', (req, res) => {
-  res.json(products)
-})
-
-app.get('/api/product/:id', (req, res) => {
-  const product = products.find((p) => p._id == req.params.id)
-  if (product === null) {
-    return
-  }
-  res.json(product)
-})
+app.use('/api/products', productRoutes)
 
 const PORT = process.env.PORT || 6000
 
