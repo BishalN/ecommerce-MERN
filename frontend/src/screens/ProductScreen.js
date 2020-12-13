@@ -5,6 +5,7 @@ import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 
 import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions'
+import Loader from '../components/Loader'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
@@ -29,7 +30,7 @@ const ProductScreen = ({ history, match }) => {
       </Link>
 
       {loading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
         <h3>{error}</h3>
       ) : (
