@@ -7,6 +7,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrder } from '../actions/orderActions'
+import { Link } from 'react-router-dom'
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -154,6 +155,18 @@ const ProfileScreen = ({ location, history }) => {
               ))}
             </tbody>
           </Table>
+        )}
+        {orders.length === 0 ? (
+          <Message>
+            {' '}
+            You have not made any orders yet
+            <Link to='/' className='ml-2'>
+              {' '}
+              {'  '}Start making some
+            </Link>{' '}
+          </Message>
+        ) : (
+          <></>
         )}
       </Col>
     </Row>
