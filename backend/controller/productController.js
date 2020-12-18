@@ -80,6 +80,9 @@ const updateProduct = asyncHandler(async (req, res) => {
     category,
     countInStock,
   } = req.body
+
+  const product = await Product.findById(req.params.id)
+
   if (product) {
     product.name = name
     product.price = price
@@ -95,7 +98,6 @@ const updateProduct = asyncHandler(async (req, res) => {
     res.status(404)
     throw new Error('Product not found')
   }
-  const product = await Product.findById(req.params.id)
 })
 
 export {

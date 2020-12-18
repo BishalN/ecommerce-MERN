@@ -47,7 +47,6 @@ const ProductListScreen = ({ history, match }) => {
       history.push(`/admin/product/${createdProduct._id}/edit`)
     } else {
       dispatch(listProducts())
-      //eslint disable next line
     }
   }, [
     dispatch,
