@@ -31,7 +31,6 @@ const authUser = asyncHandler(async (req, res) => {
 // @access  Private
 
 const getUserProfile = asyncHandler(async (req, res) => {
-  //Auth Middleware sets the req.user._id
   const user = await User.findById(req.user._id)
 
   if (user) {

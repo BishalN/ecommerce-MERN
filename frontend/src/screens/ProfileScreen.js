@@ -156,7 +156,7 @@ const ProfileScreen = ({ location, history }) => {
             </tbody>
           </Table>
         )}
-        {orders.length === 0 ? (
+        {orders && orders.length === 0 ? (
           <Message>
             {' '}
             You have not made any orders yet
