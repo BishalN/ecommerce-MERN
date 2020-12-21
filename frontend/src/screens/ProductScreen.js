@@ -58,7 +58,7 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <Meta title={product.name} />
+      <Meta title={product && product.name} />
       <Link to='/' className='btn btn-secondary my-3'>
         Go Back
       </Link>
@@ -84,7 +84,9 @@ const ProductScreen = ({ history, match }) => {
                     text={`${
                       product.numReviews > 1
                         ? `${product.numReviews} reviews`
-                        : '1 review'
+                        : product.numReviews === 0
+                        ? 'No reviews'
+                        : ''
                     }`}
                   />
                 </ListGroup.Item>

@@ -66,7 +66,7 @@ const ProductListScreen = ({ history, match }) => {
     }
   }
 
-  const createProductHandler = (product) => {
+  const createProductHandler = () => {
     dispatch(createProduct())
   }
   return (
