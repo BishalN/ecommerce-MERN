@@ -13,8 +13,6 @@ const Header = ({ history }) => {
   const state = useSelector((state) => state);
   const { userLogin, userRegister } = state;
 
-  console.log(userRegister);
-
   let userInfo;
 
   if (userLogin.userInfo && userLogin.userInfo.name) {
