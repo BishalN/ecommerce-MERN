@@ -1,20 +1,32 @@
-import React from 'react'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Route } from 'react-router-dom'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Route } from 'react-router-dom';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { logout } from '../actions/userActions'
-import SearchBox from './SearchBox'
+import { logout } from '../actions/userActions';
+import SearchBox from './SearchBox';
 
 const Header = ({ history }) => {
-  const dispatch = useDispatch()
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
-  const logoutHandler = () => {
-    dispatch(logout())
-    history.push('/login')
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => state);
+  const { userLogin, userRegister } = state;
+
+  console.log(userRegister);
+
+  let userInfo;
+
+  if (userLogin.userInfo && userLogin.userInfo.name) {
+    userInfo = userLogin.userInfo;
+  } else if (userRegister.userInfo) {
+    userInfo = userRegister.userInfo;
   }
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    history.push('/login');
+  };
   return (
     <header>
       <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
@@ -68,7 +80,7 @@ const Header = ({ history }) => {
         </Container>
       </Navbar>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
