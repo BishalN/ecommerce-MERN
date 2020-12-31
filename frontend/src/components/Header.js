@@ -23,7 +23,6 @@ const Header = ({ history }) => {
 
   const logoutHandler = () => {
     dispatch(logout());
-    history.push('/login');
   };
   return (
     <header>
@@ -47,7 +46,7 @@ const Header = ({ history }) => {
                   <LinkContainer to='/profile'>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/logout'>
+                  <LinkContainer to='/login'>
                     <NavDropdown.Item onClick={logoutHandler}>
                       Logout
                     </NavDropdown.Item>
